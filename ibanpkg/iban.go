@@ -24,8 +24,8 @@ package ibanpkg
 
 	Example (fictitious United Kingdom bank, sort code 12-34-56, account number 98765432):
 
-	• IBAN:		GB82 WEST 1234 5698 7654 32
-	• Rearrange:		W E S T12345698765432 G B82
+	• IBAN:		                GB82 WEST 1234 5698 7654 32
+	• Rearrange:		        W E S T12345698765432 G B82
 	• Convert to integer:		3214282912345698765432161182
 	• Compute remainder:		3214282912345698765432161182	mod 97 = 1
 
