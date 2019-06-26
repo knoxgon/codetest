@@ -156,8 +156,12 @@ func charToIso7064(char rune) int64 {
 The return type is a condition whether the given iban is valid or not.
 */
 func ControlIban(iban string) bool {
-	iban = strings.ToUpper(strings.Replace(iban, " ", "", -1))
+	//Terminate before going any further if iban has fewer characters
+	if len(iban) < 5 {
+		return false
+	}
 
+	iban = strings.ToUpper(strings.Replace(iban, " ", "", -1))
 	if controlIso2AndLength(iban) != true {
 		return false
 	}
