@@ -16,8 +16,8 @@ type Iban interface {
 	controlIban()
 }
 
-func (ib *IbanObject) getIbans() map[string]int {
-	ibans := map[string]int{
+func (ib *IbanObject) setupIbanCodes() {
+	ib.ibans = map[string]int{
 		"AL": 28,
 		"AD": 24,
 		"AT": 20,
@@ -95,7 +95,6 @@ func (ib *IbanObject) getIbans() map[string]int {
 		"GB": 22,
 		"VG": 24,
 	}
-	return ibans
 }
 
 func (ib IbanObject) controlIso2AndLength(iban string) bool {
