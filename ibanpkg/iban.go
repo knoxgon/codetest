@@ -90,6 +90,7 @@ func getIbanCodes() map[string]int {
 		"AE": 23,
 		"GB": 22,
 		"VG": 24,
+		"GP": 27,
 	}
 }
 
