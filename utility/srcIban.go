@@ -1,11 +1,22 @@
-package iban
+package ibanpckg
 
 import (
-	"fmt"
 	"strings"
 )
 
-func getIbans() map[string]int {
+//IbanObject ...
+type IbanObject struct {
+	ibans map[string]int
+}
+
+// Iban ...
+type Iban interface {
+	getIbans()
+	controlIso2AndLength()
+	controlIban()
+}
+
+func (ib *IbanObject) getIbans() map[string]int {
 	ibans := map[string]int{
 		"AL": 28,
 		"AD": 24,
@@ -87,11 +98,13 @@ func getIbans() map[string]int {
 	return ibans
 }
 
-func controlIso2AndLength(iban string) bool {
+func (ib IbanObject) controlIso2AndLength(iban string) bool {
+	//Trim spaces
 	iban = strings.Replace(iban, " ", "", -1)
-	fmt.Println(iban)
-	//If iso2 exists in the library
-	for k, v := range getIbans() {
+	//fmt.Println(iban)
+
+	//If iso2 exists in the library and total length is matched
+	for k, v := range ib.getIbans() {
 		if k == iban[0:2] && len(iban) == v {
 			return true
 		}
@@ -99,8 +112,8 @@ func controlIso2AndLength(iban string) bool {
 	return false
 }
 
-func controlIban(iban string) bool {
-	if controlIso2AndLength(iban) != true {
+func (ib IbanObject) controlIban(iban string) bool {
+	if ib.controlIso2AndLength(iban) != true {
 		return false
 	}
 
