@@ -1,6 +1,6 @@
 # codetest
 
-### Install iban library
+### Install
 
 ```go
 go get -u github.com/knoxgon/codetest/ibanpkg
