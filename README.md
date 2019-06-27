@@ -1,4 +1,6 @@
-# codetest
+# IBAN Verifier
+
+Verifies a given IBAN. It checks by first converting the whole IBAN into integers and calculates the modulo by 97. If the result number is 1, the IBAN might be valid. Any other numbers are not valid.
 
 ### Install
 
