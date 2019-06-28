@@ -48,6 +48,7 @@ func getIbanCodes() map[string]int {
 		"AT": 20,
 		"AZ": 28,
 		"BH": 22,
+		"GP": 27,
 		"BY": 28,
 		"BE": 16,
 		"BA": 20,
